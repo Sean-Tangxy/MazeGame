@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -26,7 +26,9 @@
     <ClInclude Include="include\component\Sprite.h" />
     <ClInclude Include="include\component\UI.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\gamemanager.h" />
     <ClInclude Include="include\GameState.h" />
+    <ClInclude Include="include\graphics.h" />
     <ClInclude Include="include\object\Coin.h" />
     <ClInclude Include="include\object\Enemy.h" />
     <ClInclude Include="include\object\Exit.h" />
@@ -40,6 +42,7 @@
     <ClInclude Include="include\scene\StartScene.h" />
     <ClInclude Include="include\scene\StoryScene.h" />
     <ClInclude Include="include\scene\TutorialScene.h" />
+    <ClInclude Include="include\utils.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +53,7 @@
     <ClCompile Include="src\component\Sprite.cpp" />
     <ClCompile Include="src\component\UI.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\graphics.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\object\Coin.cpp" />
     <ClCompile Include="src\object\Enemy.cpp" />

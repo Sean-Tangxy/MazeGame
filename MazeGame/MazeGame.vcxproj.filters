@@ -111,6 +111,15 @@
     <ClInclude Include="include\scene\TutorialScene.h">
       <Filter>头文件\scene</Filter>
     </ClInclude>
+    <ClInclude Include="include\graphics.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gamemanager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\component\AudioManager.cpp">
@@ -172,6 +181,9 @@
     </ClCompile>
     <ClCompile Include="src\component\SceneManagerGlobals.cpp">
       <Filter>源文件\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
