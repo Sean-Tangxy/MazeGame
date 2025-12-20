@@ -1,22 +1,26 @@
 //include\scene\StartScene.h
 #pragma once
-#include "scene/Scene.h"
-#include "component/SceneManager.h"
-#include "component/AudioManager.h"
+#include "Scene.h"
+#include <graphics.h>
 #include <string>
 
 class StartScene : public Scene {
-private:
-    SceneManager* m_manager;
-    std::string m_bgPath;
-    bool m_buttonPressed;
-
 public:
-    StartScene(SceneManager* mgr, const std::string& bg = "");
-    void init() override;
-    void processInput() override;
-    void update() override;
-    void render() override;
+    StartScene();
+    ~StartScene();
+
     void onEnter() override;
     void onExit() override;
+    void update() override;
+    void render() override;
+
+private:
+    IMAGE m_background;
+    IMAGE m_btnStart;
+    bool m_btnLoaded;
+    int m_btnX;
+    int m_btnY;
+    int m_btnW;
+    int m_btnH;
+    bool m_resourcesLoaded;
 };

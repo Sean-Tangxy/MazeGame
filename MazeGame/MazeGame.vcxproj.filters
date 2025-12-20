@@ -108,6 +108,9 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\scene\TutorialScene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\component\AudioManager.cpp">
@@ -163,6 +166,12 @@
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\TutorialScene.cpp">
+      <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\SceneManagerGlobals.cpp">
+      <Filter>源文件\component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

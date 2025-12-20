@@ -39,12 +39,14 @@
     <ClInclude Include="include\scene\Scene.h" />
     <ClInclude Include="include\scene\StartScene.h" />
     <ClInclude Include="include\scene\StoryScene.h" />
+    <ClInclude Include="include\scene\TutorialScene.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\component\AudioManager.cpp" />
     <ClCompile Include="src\component\Camera.cpp" />
     <ClCompile Include="src\component\ItemManager.cpp" />
+    <ClCompile Include="src\component\SceneManagerGlobals.cpp" />
     <ClCompile Include="src\component\Sprite.cpp" />
     <ClCompile Include="src\component\UI.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -60,6 +62,7 @@
     <ClCompile Include="src\scene\Map.cpp" />
     <ClCompile Include="src\scene\StartScene.cpp" />
     <ClCompile Include="src\scene\StoryScene.cpp" />
+    <ClCompile Include="src\scene\TutorialScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

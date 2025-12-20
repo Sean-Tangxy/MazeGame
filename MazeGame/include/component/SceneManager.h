@@ -28,3 +28,8 @@ public:
         if (m_current) m_current->render();
     }
 };
+
+// 全局声明（使用 extern，以便其他翻译单元引用）
+// 在单独的 cpp 文件中定义实际变量，以修复链接错误
+extern SceneManager sceneManager;
+extern SceneManager* g_sceneManager;

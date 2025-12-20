@@ -1,61 +1,110 @@
-//cpp MazeGame\StartScene.cpp
+#include <windows.h>
+#include <iostream>
+#include <memory> // 为 std::make_unique 引入
 #include "../include/scene/StartScene.h"
-#include <Windows.h>
+#include "../include/component/SceneManager.h"
+#include "../include/scene/StoryScene.h"
+#include <graphics.h>
 
-StartScene::StartScene(SceneManager* mgr, const std::string& bg)
-    : m_manager(mgr), m_bgPath(bg), m_buttonPressed(false) {
+StartScene::StartScene()
+    : m_btnLoaded(false),
+    m_btnX(810), m_btnY(560), m_btnW(300), m_btnH(80),
+    m_resourcesLoaded(false) {
 }
 
-void StartScene::init() {
-    // 可以开始加载图像/资源
+StartScene::~StartScene() {
+    onExit();
 }
 
 void StartScene::onEnter() {
-    // 播放背景音乐（示例）
-    AudioManager::playMusic("Assets/music/title.wav", true);
+    // 载入资源（请将资源放在 Assets/ 对应目录）
+    if (loadimage(&m_background, "resources/images/background01") != 0) {
+        // loadimage 返回非 0 可能表示失败，按项目 EasyX 版本调整检查
+    }
+    if (loadimage(&m_btnStart, "Assets/UI/Buttons/btn_start.png", m_btnW, m_btnH) == 0) {
+        m_btnLoaded = true;
+    }
+    m_resourcesLoaded = true;
+
+    // 设置鼠标可见（若需要）
+    // ShowCursor(TRUE);
 }
 
 void StartScene::onExit() {
-    AudioManager::stopMusic();
+    m_resourcesLoaded = false;
+    m_btnLoaded = false;
+    // EasyX 不需要显式释放 IMAGE，但清空标志以便重新加载
 }
 
-void StartScene::processInput() {
-    if (GetAsyncKeyState(VK_LBUTTON) & 0x8000) {
-        POINT mp;
-        if (GetCursorPos(&mp)) {
-            ScreenToClient(GetHWnd(), &mp);
-            // 简单按钮区域判断
-            if (mp.x >= 300 && mp.x <= 500 && mp.y >= 300 && mp.y <= 360) {
-                m_buttonPressed = true;
+void StartScene::update() {
+    if (!m_resourcesLoaded) return;
+
+    // 处理鼠标点击：若点击开始按钮，进入剧情场景
+    while (MouseHit()) {
+        MOUSEMSG msg = GetMouseMsg();
+        if (msg.uMsg == WM_LBUTTONDOWN) {
+            int mx = msg.x;
+            int my = msg.y;
+            if (mx >= m_btnX && mx <= m_btnX + m_btnW && my >= m_btnY && my <= m_btnY + m_btnH) {
+                // 切换到 StoryScene，使用全局指针 g_sceneManager
+                extern SceneManager* g_sceneManager;
+                if (g_sceneManager) {
+                    g_sceneManager->changeScene(std::make_unique<StoryScene>());
+                }
+                return;
             }
+        }
+    }
+
+    // 支持 Enter/Space 快速开始
+    if ((GetAsyncKeyState(VK_RETURN) & 0x8000) || (GetAsyncKeyState(VK_SPACE) & 0x8000)) {
+        extern SceneManager* g_sceneManager;
+        if (g_sceneManager) {
+            g_sceneManager->changeScene(std::make_unique<StoryScene>());
         }
     }
 }
 
-void StartScene::update() {
-    if (m_buttonPressed && m_manager) {
-        // 切换到剧情场景（StoryScene 需在项目中添加）
-        // 为避免循环依赖，这里只展示用法：用户可替换为 StoryScene 的实际构造函数
-        // m_manager->changeScene(std::make_unique<StoryScene>(m_manager, ...));
-        m_buttonPressed = false;
-    }
-}
-
 void StartScene::render() {
-    cleardevice();
-    // 背景占位
-    setfillcolor(RGB(30, 30, 40));
-    solidrectangle(0, 0, getwidth(), getheight());
+    if (!m_resourcesLoaded) return;
 
-    // 绘制标题
-    settextstyle(40, 0, "微软雅黑");
-    settextcolor(RGB(255, 255, 255));
-    outtextxy(220, 120, _T("MazeGame - 迷宫冒险"));
+    // 背景拉满屏
+    putimage(0, 0, &m_background);
 
-    // 绘制开始按钮
-    setfillcolor(RGB(70, 130, 180));
-    solidrectangle(300, 300, 500, 360);
-    settextstyle(28, 0, "微软雅黑");
-    settextcolor(RGB(255, 255, 255));
-    outtextxy(350, 318, _T("开始游戏"));
+    // 标题：居中，微软雅黑，深蓝色，加粗（通过较大字号模拟加粗）
+    const char* title = "灰色的雪";
+    // 设置字体（高度 80，根据屏幕分辨率调整）
+    settextstyle(80, 0, "微软雅黑");
+    settextcolor(RGB(0, 30, 90)); // 深蓝色
+    int titleW = textwidth(title);
+    int titleX = (getwidth() - titleW) / 2;
+    int titleY = 200;
+    outtextxy(titleX, titleY, title);
+
+    // 按钮：优先使用图片，否则绘制简易矩形按钮
+    if (m_btnLoaded) {
+        putimage(m_btnX, m_btnY, &m_btnStart);
+        // 按钮文字（置于图片上方，较小）
+        const char* btnText = "开始游戏";
+        settextstyle(28, 0, "微软雅黑");
+        settextcolor(WHITE);
+        int tw = textwidth(btnText);
+        int tx = m_btnX + (m_btnW - tw) / 2;
+        int ty = m_btnY + (m_btnH - textheight(btnText)) / 2;
+        outtextxy(tx, ty, btnText);
+    }
+    else {
+        // 绘制灰色按钮背景与蓝色边框
+        setfillcolor(RGB(230, 230, 230));
+        solidrectangle(m_btnX, m_btnY, m_btnX + m_btnW, m_btnY + m_btnH);
+        setlinecolor(RGB(0, 30, 90));
+        rectangle(m_btnX, m_btnY, m_btnX + m_btnW, m_btnY + m_btnH);
+        const char* btnText = "开始游戏";
+        settextstyle(28, 0, "微软雅黑");
+        settextcolor(RGB(0, 30, 90));
+        int tw = textwidth(btnText);
+        int tx = m_btnX + (m_btnW - tw) / 2;
+        int ty = m_btnY + (m_btnH - textheight(btnText)) / 2;
+        outtextxy(tx, ty, btnText);
+    }
 }
