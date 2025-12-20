@@ -19,34 +19,47 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Coin.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Exit.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameState.h" />
-    <ClInclude Include="Item.h" />
-    <ClInclude Include="Key.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Potion.h" />
-    <ClInclude Include="UI.h" />
+    <ClInclude Include="include\component\AudioManager.h" />
+    <ClInclude Include="include\component\Camera.h" />
+    <ClInclude Include="include\component\ItemManager.h" />
+    <ClInclude Include="include\component\SceneManager.h" />
+    <ClInclude Include="include\component\Sprite.h" />
+    <ClInclude Include="include\component\UI.h" />
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\GameState.h" />
+    <ClInclude Include="include\object\Coin.h" />
+    <ClInclude Include="include\object\Enemy.h" />
+    <ClInclude Include="include\object\Exit.h" />
+    <ClInclude Include="include\object\GameObject.h" />
+    <ClInclude Include="include\object\Item.h" />
+    <ClInclude Include="include\object\Key.h" />
+    <ClInclude Include="include\object\Map.h" />
+    <ClInclude Include="include\object\Player.h" />
+    <ClInclude Include="include\object\Potion.h" />
+    <ClInclude Include="include\scene\Scene.h" />
+    <ClInclude Include="include\scene\StartScene.h" />
+    <ClInclude Include="include\scene\StoryScene.h" />
+    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Coin.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Exit.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameObject.h" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemManager.cpp" />
-    <ClCompile Include="ItemManager.h" />
-    <ClCompile Include="Key.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Player.h" />
-    <ClCompile Include="Potion.cpp" />
-    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="src\component\AudioManager.cpp" />
+    <ClCompile Include="src\component\Camera.cpp" />
+    <ClCompile Include="src\component\ItemManager.cpp" />
+    <ClCompile Include="src\component\Sprite.cpp" />
+    <ClCompile Include="src\component\UI.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\object\Coin.cpp" />
+    <ClCompile Include="src\object\Enemy.cpp" />
+    <ClCompile Include="src\object\Exit.cpp" />
+    <ClCompile Include="src\object\GameObject.cpp" />
+    <ClCompile Include="src\object\Item.cpp" />
+    <ClCompile Include="src\object\Key.cpp" />
+    <ClCompile Include="src\object\Player.cpp" />
+    <ClCompile Include="src\object\Potion.cpp" />
+    <ClCompile Include="src\scene\Map.cpp" />
+    <ClCompile Include="src\scene\StartScene.cpp" />
+    <ClCompile Include="src\scene\StoryScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -106,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,6 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +147,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(WindowsSdkDir)Include\$(WindowsSDKVersion)um;$(WindowsSdkDir)Include\$(WindowsSDKVersion)shared;$(VC_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,6 +163,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

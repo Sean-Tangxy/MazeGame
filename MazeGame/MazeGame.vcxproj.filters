@@ -13,86 +13,155 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\component">
+      <UniqueIdentifier>{f6bd9d12-9dd0-46be-8d2d-c1e6b8a58315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\scene">
+      <UniqueIdentifier>{8fabf315-2f5c-46cb-b77d-e5800569fce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\object">
+      <UniqueIdentifier>{fb1775b3-cb80-410f-9234-d15203dee5e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\component">
+      <UniqueIdentifier>{823f11fe-0e21-4899-a96d-a5d4d5861698}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\object">
+      <UniqueIdentifier>{3c532f8c-94e1-462e-a837-1006c0c07fc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\scene">
+      <UniqueIdentifier>{8b031283-7197-488f-9977-ce73c14ccae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\sprites">
+      <UniqueIdentifier>{25828ecf-5f31-42ed-ad7d-664b242bfe6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\musics">
+      <UniqueIdentifier>{482d2100-e0be-40d9-812a-4f65083a73a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\images">
+      <UniqueIdentifier>{f3e0c7c3-dcdd-4e37-b03c-59ae0d6c070c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\maps">
+      <UniqueIdentifier>{4fc404d0-0b46-45e7-8cea-369ad38120e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="include\component\AudioManager.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\component\Camera.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\component\ItemManager.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\component\SceneManager.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\component\Sprite.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\component\UI.h">
+      <Filter>头文件\component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Coin.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Enemy.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Exit.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\GameObject.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Item.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Key.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Map.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Player.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\object\Potion.h">
+      <Filter>头文件\object</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene\Scene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene\StartScene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene\StoryScene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
+    <ClInclude Include="include\GameState.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Coin.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Potion.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Key.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Exit.h">
+    <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\component\AudioManager.cpp">
+      <Filter>源文件\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Camera.cpp">
+      <Filter>源文件\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\ItemManager.cpp">
+      <Filter>源文件\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\Sprite.cpp">
+      <Filter>源文件\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component\UI.cpp">
+      <Filter>源文件\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\Map.cpp">
+      <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\StartScene.cpp">
+      <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene\StoryScene.cpp">
+      <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\Coin.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\Enemy.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\Exit.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\GameObject.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\Item.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\Key.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\Player.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\object\Potion.cpp">
+      <Filter>源文件\object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemManager.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Coin.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Potion.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Key.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Exit.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
