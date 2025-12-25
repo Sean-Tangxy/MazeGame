@@ -1,8 +1,16 @@
-#include "MazeGame/include/graphics.h"
-#include "MazeGame/include/gamemanager.h"
+#include "graphics.h"
+#include "gamemanager.h"
 
 IMAGE::IMAGE(ImageID imageID, int x, int y, LayerID layer, int width, int height, AnimID animID)
-    : m_imageID(imageID), m_x(x), m_y(y), m_layer(layer), m_width(width), m_height(height), m_animID(animID), m_currentFrame(0) {
+	: m_imageID(imageID)
+	, m_x(x)
+	, m_y(y)
+	, m_layer(layer)
+	, m_width(width)
+	, m_height(height)
+	, m_animID(animID)
+	, m_currentFrame(0)
+{
     GetObjects(m_layer).insert(this);
 }
 
@@ -10,7 +18,7 @@ IMAGE::~IMAGE() {
     GetObjects(m_layer).erase(this);
 }
 
-bool IMAGE::operator==(const IMAGE& other) {
+bool IMAGE::operator==(const IMAGE& other) const {
     return this == &other;
 }
 
@@ -51,8 +59,8 @@ void IMAGE::PlayAnimation(AnimID animID) {
 
 std::set<IMAGE*>& IMAGE::GetObjects(LayerID layer) {
     static std::set<IMAGE*> gameObjects[MAX_LAYERS];
-    if (auto l = static_cast<int>(layer); l < MAX_LAYERS)
-        return  [l];
-    else
+	int l = static_cast<int>(layer);
+	if (l >= 0 && l < MAX_LAYERS)
+		return gameObjects[l];
         return gameObjects[0];
 }
