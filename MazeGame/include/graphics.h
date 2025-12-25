@@ -1,21 +1,23 @@
 #pragma once
 
-#include<utils.h>
-#include<set>
+#include <utils.h>
+#include <set>
 
 class IMAGE {
 public:
-	IMAGE(ImageID imageID, int x, int y, LayerID layer, int height, int width, AnimID animID);
+	IMAGE(ImageID imageID, int x, int y, LayerID layer, int width, int height, AnimID animID = AnimID::NO_ANIMATION);
+	IMAGE();
+	~IMAGE();
+
 	IMAGE(const IMAGE& other) = delete;
 	IMAGE(IMAGE&& other) = delete;
 	IMAGE& operator=(const IMAGE& other) = delete;
 	IMAGE& operator=(IMAGE&& other) = delete;
-	virtual ~IMAGE();
 
-	virtual bool operator==(const IMAGE& other);
+	bool operator==(const IMAGE& other) const;
 
-	virtual void Update() = 0;
-	virtual void OnClick() = 0;
+	void Update();
+	void OnClick();
 
 	int GetX() const;
 	int GetY() const;
@@ -28,7 +30,6 @@ public:
 	void ChangeImage(ImageID imageID);
 	void PlayAnimation(AnimID animID);
 
-	friend class GameManager;
 
 private:
 	ImageID m_imageID;
@@ -43,7 +44,7 @@ private:
 public:
 	template<typename Func>
 	static void DisplayAllObjects(Func displayAndAnimateFunc) {
-		for (int layer = MAX_LAYERS - 1; layer >= 0; layer--) {
+		for (int layer = MAX_LAYERS - 1; layer >= 0; --layer) {
 			for (auto& obj : GetObjects(static_cast<LayerID>(layer))) {
 				obj->m_currentFrame = displayAndAnimateFunc(obj->m_imageID, obj->m_animID, obj->m_x, obj->m_y, obj->m_currentFrame);
 			}
@@ -51,7 +52,7 @@ public:
 	}
 
 	static void ClickAt(int x, int y) {
-		for (int layer = 0; layer < MAX_LAYERS; layer++) {
+		for (int layer = 0; layer < MAX_LAYERS; ++layer) {
 			for (auto& obj : GetObjects(static_cast<LayerID>(layer))) {
 				if (std::abs(x - obj->m_x) <= obj->m_width / 2 && std::abs(y - obj->m_y) <= obj->m_height / 2) {
 					obj->OnClick();
