@@ -1,0 +1,87 @@
+add_library(
+  Coin
+  STATIC
+  Coin.cpp
+)
+target_link_libraries(
+  Coin
+  component
+  scene
+)
+
+add_library(
+  Enemy
+  STATIC
+  Enemy.cpp
+)
+target_link_libraries(
+  Enemy
+  component
+  scene
+)
+
+add_library(
+  Exit
+  STATIC
+  Exit.cpp
+)
+target_link_libraries(
+  Exit
+  component
+  scene
+)
+
+add_library(
+  GameObject
+  STATIC
+  GameObject.cpp
+)
+target_link_libraries(
+  GameObject
+  component
+  scene
+)
+
+add_library(
+  Item
+  STATIC
+  Item.cpp
+)
+target_link_libraries(
+  Item
+  component
+  scene
+)
+
+add_library(
+  Key
+  STATIC
+  Key.cpp
+)
+target_link_libraries(
+  Key
+  component
+  scene
+)
+
+add_library(
+  Player
+  STATIC
+  Player.cpp
+)
+target_link_libraries(
+  Player
+  component
+  scene
+)
+
+add_library(
+  Potion
+  STATIC
+  Potion.cpp
+)
+target_link_libraries(
+  Potion
+  component
+  scene
+)

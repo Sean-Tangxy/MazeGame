@@ -1,0 +1,42 @@
+add_library(
+  MAP
+  STATIC
+  MAP.cpp
+)
+target_link_libraries(
+  MAP
+)
+
+add_library(
+  StartScene
+  STATIC
+  StartScene.cpp
+)
+target_link_libraries(
+  StartScene
+  SceneManager
+  StoryScene
+  graphics
+)
+
+add_library(
+  StoryScene
+  STATIC
+  StoryScene.cpp
+)
+target_link_libraries(
+  StoryScene
+  SceneManager
+  TutorialScene
+  graphics
+)
+
+add_library(
+  TutorialScene
+  STATIC
+  TutorialScene.cpp
+)
+target_link_libraries(
+  TutorialScene
+  graphics
+)
