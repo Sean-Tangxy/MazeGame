@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/college/fianl project/MazeGame/MazeGame/build/cmake_install.cmake",
+		"D:/college/fianl project/MazeGame/MazeGame/build/SOIL/cmake_install.cmake",
+		"D:/college/fianl project/MazeGame/MazeGame/build/freeglut/cmake_install.cmake",
+		"D:/college/fianl project/MazeGame/MazeGame/build/src/component/cmake_install.cmake",
+		"D:/college/fianl project/MazeGame/MazeGame/build/src/object/cmake_install.cmake",
+		"D:/college/fianl project/MazeGame/MazeGame/build/src/scene/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
